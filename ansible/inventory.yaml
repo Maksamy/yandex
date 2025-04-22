@@ -2,13 +2,13 @@
 all:
   hosts:
     ubu_vm1:
-      ansible_host: 158.160.56.168
+      ansible_host: 84.252.130.176
       name_vm: "ubu_vm1"
     ubu_vm2:
-      ansible_host: 84.252.130.176
+      ansible_host: 89.169.142.59
       name_vm: "ubu_vm2"
     ubu_vm3:
-      ansible_host: 158.160.47.233
+      ansible_host: 89.169.131.100
       name_vm: "ubu_vm3"
   vars:
     ansible_user: pma
