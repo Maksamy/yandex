@@ -11,3 +11,10 @@
     src: index.j2
     dest: /var/www/html/index.nginx-debian.html
   notify: "Nginx Reloader"
+
+- name: Генерация конфига Nginx из шаблона
+  ansible.builtin.template:
+    src: "default.j2"
+    dest: "/etc/nginx/sites-available/default"   
+  when: hostvars[inventory_hostname]['name_vm']  == "ubu_vm1"  
+  notify: "Nginx Reloader"

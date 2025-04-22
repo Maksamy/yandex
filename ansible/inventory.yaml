@@ -1,12 +1,15 @@
 ---
 all:
   hosts:
-    vm_1:
-      ansible_host: 158.160.60.95
-    vm_2:
-      ansible_host: 158.160.121.167
-    vm_3:
-      ansible_host: 158.160.120.115
+    ubu_vm1:
+      ansible_host: 158.160.56.168
+      name_vm: "ubu_vm1"
+    ubu_vm2:
+      ansible_host: 84.252.130.176
+      name_vm: "ubu_vm2"
+    ubu_vm3:
+      ansible_host: 158.160.47.233
+      name_vm: "ubu_vm3"
   vars:
     ansible_user: pma
     ansible_ssh_private_key_file: ~/.ssh/id_ed25519

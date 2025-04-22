@@ -37,14 +37,21 @@ resource "yandex_compute_instance" "virtual_machine" {
   }
   
   metadata = {
-    user-data = "${file("/home/pma/terraform_yandex/metadata.txt")}"
+    user-data = "${file("/home/pma/yandex/terraform_yandex/metadata.txt")}"
   }
 
   provisioner "remote-exec" {
-  inline = [
-    "sudo hostnamectl set-hostname ${var.vm_name}",
-    "echo '${var.vm_name}' | sudo tee /etc/hostname",
-    "sudo systemctl restart systemd-hostnamed"
-  ]
-}
+    inline = [
+      "sudo hostnamectl set-hostname ${each.value["vm_name"]}",
+      "echo '${each.value["vm_name"]}' | sudo tee /etc/hostname",
+      "sudo systemctl restart systemd-hostnamed"
+    ]
+  }
+
+  connection {
+    type        = "ssh"
+    user        = "pma"
+    private_key = file("~/.ssh/id_ed25519")
+    host        = self.network_interface[0].nat_ip_address
+  }
 }

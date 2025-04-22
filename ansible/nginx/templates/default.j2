@@ -1,0 +1,10 @@
+server {
+        listen 3000;
+
+        server_name _;
+
+        location / {
+                proxy_pass http://{{ hostvars['ubu_vm3']['ansible_host'] }};
+        }
+}
+
