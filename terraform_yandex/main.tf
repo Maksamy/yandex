@@ -37,7 +37,7 @@ resource "yandex_compute_instance" "virtual_machine" {
   }
   
   metadata = {
-    user-data = "${file("/home/pma/terraform_yandex/metadata.txt")}"
+    user-data = "${file("/home/pma/yandex/terraform_yandex/metadata.txt")}"
   }
 
   provisioner "remote-exec" {
