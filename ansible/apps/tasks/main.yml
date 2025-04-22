@@ -1,0 +1,8 @@
+---
+# tasks file for apps
+- name: Установка программ
+  apt:
+    name: "{{ item }}"
+    state: present
+  loop:
+    - "{{ packages }}"

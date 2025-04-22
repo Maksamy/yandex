@@ -1,0 +1,5 @@
+---
+# tasks file for aptupdate
+- name: Update apt package index
+  ansible.builtin.apt:
+    update_cache: yes

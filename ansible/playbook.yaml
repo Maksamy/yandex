@@ -1,0 +1,27 @@
+- name: Обновление пакетов
+  hosts: all
+  roles:
+    - role: aptupdate
+      tags: [aptu]
+
+- name: Установка стандартных пакетов
+  hosts: all
+  roles:
+    - role: apps
+      tags: [apps]
+
+- name: Установка nginx
+  hosts: all
+  roles:
+    - role: nginx
+      tags: [nginx]
+
+- name: Configure hostname and groups dynamically
+  hosts: all
+  tasks:
+    - name: Display host info
+      ansible.builtin.debug:
+        msg:
+          - "Inventory name: {{ inventory_hostname }}"
+          - "Facts hostname: {{ ansible_facts['hostname'] }}"
+          - "Groups: {{ group_names }}"

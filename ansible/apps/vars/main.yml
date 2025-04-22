@@ -1,0 +1,9 @@
+---
+var:
+packages:
+  - dnsutils
+  - net-tools
+  - rsync
+  - mc
+  - curl
+  - wget

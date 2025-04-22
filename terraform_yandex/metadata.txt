@@ -1,0 +1,8 @@
+#cloud-config
+users:
+  - name: pma
+    groups: sudo
+    shell: /bin/bash
+    sudo: 'ALL=(ALL) NOPASSWD:ALL'
+    ssh_authorized_keys:
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFJ2QGi5Xjh43rovM6tlwhS2/HWeADZgA50fhmzJBfrR pma@ubu-dp1
